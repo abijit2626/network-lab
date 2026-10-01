@@ -10,6 +10,7 @@ One file per experiment (experiment 2 has a server and a client file), all in `e
 | 4 | Network design (optional, Packet Tracer) | `exp04_network_design.md` | step-by-step guide |
 | 4 | Sender / receiver in Java (UDP) | `Exp04Sender.java`, `Exp04Receiver.java` | `java Exp04Receiver [port]` then `java Exp04Sender [host] [port]` |
 | 5 | TCP client/server | `exp05_tcp_sockets.c` | `./tcp server [port]` then `./tcp client [ip] [port]` |
+| 5 | UDP chat (multi-client) in Java | `Exp05UdpChatServer.java`, `Exp05UdpChatClient.java` | `java Exp05UdpChatServer [port]` then `java Exp05UdpChatClient <name> [host] [port]` |
 | 6 | UDP client/server | `exp06_udp_sockets.c` | `./udp server [port]` then `./udp client [ip] [port]` |
 | 7 | Stop-and-Wait, Stop-and-Wait ARQ | `Exp07StopAndWait.java` | `java Exp07StopAndWait 5 0.3` |
 | 8 | Go-Back-N, Selective Repeat | `Exp08SlidingWindow.java` | `java Exp08SlidingWindow both 10 4 0.2` |
