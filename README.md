@@ -9,4 +9,4 @@ Java programs are compiled with `javac <files>` and run with `java <ClassName>`;
 | 4 | Sliding window protocol (Go-Back-N, Java) | `04_sliding_window` | `SlidingWindowSender.java` `SlidingWindowReceiver.java` | `java SlidingWindowReceiver [port] [loss]` / `java SlidingWindowSender [host] [port] [frames] [window]` |
 | 5 | Distance Vector Routing (Java) | `05_distance_vector_routing` | `DistanceVectorRouting.java` | `java DistanceVectorRouting [--input]` |
 | 6 | Congestion control: leaky bucket (Java) | `06_leaky_bucket` | `LeakyBucket.java` | `java LeakyBucket [--input]` |
-| 7 | FTP (Java) | `07_ftp` | `FtpServer.java` `FtpClient.java` | `java FtpServer [port]` / `java FtpClient [host] [port]` (login student/lab123) |
+| 7 | FTP: server sends a .txt file, client receives it (Java) | `07_ftp` | `FtpServer.java` `FtpClient.java` | `java FtpServer <file.txt> [port]` / `java FtpClient [host] [port]` (saved as `received_<name>`) |
