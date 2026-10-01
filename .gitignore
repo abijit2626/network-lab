@@ -1,0 +1,5 @@
+*.o
+*.nam
+*.tr
+mailbox/
+ftp_root/
