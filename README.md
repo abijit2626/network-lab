@@ -6,6 +6,7 @@ One file per experiment (experiment 2 has a server and a client file), all in `e
 | 1 | Basic networking commands | `exp01_basic_commands.sh` | `./exp01_basic_commands.sh [host]` |
 | 2 | Network system calls | `exp02_server.c`, `exp02_client.c` | `./server [port]` then `./client [ip] [port]` |
 | 3 | IP, subnetting, supernetting | `Exp03Subnetting.java` | `java Exp03Subnetting 192.168.10.0/24` |
+| 3 | TCP client/server in Java | `Exp03TcpServer.java`, `Exp03TcpClient.java` | `java Exp03TcpServer [port]` then `java Exp03TcpClient [host] [port]` |
 | 4 | Network design (optional, Packet Tracer) | `exp04_network_design.md` | step-by-step guide |
 | 5 | TCP client/server | `exp05_tcp_sockets.c` | `./tcp server [port]` then `./tcp client [ip] [port]` |
 | 6 | UDP client/server | `exp06_udp_sockets.c` | `./udp server [port]` then `./udp client [ip] [port]` |
