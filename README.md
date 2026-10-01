@@ -15,10 +15,11 @@ One file per experiment (experiment 2 has a server and a client file), all in `e
 | 7 | Stop-and-Wait, Stop-and-Wait ARQ | `Exp07StopAndWait.java` | `java Exp07StopAndWait 5 0.3` |
 | 8 | Go-Back-N, Selective Repeat | `Exp08SlidingWindow.java` | `java Exp08SlidingWindow both 10 4 0.2` |
 | 8 | Sliding window over UDP: sender & receiver | `Exp08SlidingWindowSender.java`, `Exp08SlidingWindowReceiver.java` | `java Exp08SlidingWindowReceiver [port] [loss]` then `java Exp08SlidingWindowSender [host] [port] [frames] [window]` |
-| 9 | Distance Vector / Link State routing | `Exp09Routing.java` | `java Exp09Routing distancevector` or `linkstate` |
+| 9 | Distance Vector Routing (DVR) | `Exp09DistanceVector.java` | `java Exp09DistanceVector [--input]` |
+| 9 | Link State Routing | `Exp09LinkState.java` | `java Exp09LinkState [--input]` |
 | 10 | Packet sniffer | `exp10_packet_sniffer.c` | `sudo ./sniffer 20 [port]` |
 | 11 | SMTP | `Exp11Smtp.java` | `java Exp11Smtp smtpserver` then `java Exp11Smtp smtpclient` |
-| 12 | FTP | `Exp12Ftp.java` | `java Exp12Ftp ftpserver` then `java Exp12Ftp ftpclient` (student/lab123) |
+| 12 | FTP server and client | `Exp12FtpServer.java`, `Exp12FtpClient.java` | `java Exp12FtpServer [port]` then `java Exp12FtpClient [host] [port]` (student/lab123) |
 | 13 | NS-2 introduction | `exp13_ns2_intro.tcl` | `ns exp13_ns2_intro.tcl` |
 | 14 | Ping over star topology (NS-2) | `exp14_ns2_star_ping.tcl` | `ns exp14_ns2_star_ping.tcl 6` |
 | – | Leaky bucket traffic shaping | `LeakyBucket.java` | `java LeakyBucket` or `java LeakyBucket --input` |
