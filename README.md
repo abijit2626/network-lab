@@ -1,19 +1,19 @@
 # Computer Networks Lab (24CSCNWP508)
-Programs for all experiments in the syllabus, written in C (system/socket level) and Java (protocols and simulations); NS-2 uses Tcl as required by the simulator. NS-2 scripts (13, 14) were not run here – NS-2 wasn't available; run them with `ns`. Experiment 4 is a GUI task (Packet Tracer), so it's a step-by-step guide.
+One file per experiment, all in `experiments/`. C and Java are used; NS-2 needs Tcl. Compile Java with `javac <file>` and run with `java <ClassName>`.
 
-| # | Experiment | Folder | Language | Run |
-|---|---|---|---|---|
-| 1 | Basic networking commands | `exp01_basic_commands` | Bash | `./basic_commands.sh` |
-| 2 | Network system calls | `exp02_system_calls` | C | `gcc syscalls_demo.c -o sd && ./sd` |
-| 3 | IP, subnetting, supernetting | `exp03_ip_subnetting` | Java | `javac Subnet.java && java Subnet 192.168.10.0/24` |
-| 4 | Network design (optional) | `exp04_network_design` | Packet Tracer guide | – |
-| 5 | TCP client/server | `exp05_tcp_sockets` | C | `./tcp_server` then `./tcp_client` |
-| 6 | UDP client/server | `exp06_udp_sockets` | C | `./udp_server` then `./udp_client` |
-| 7 | Stop-and-Wait, Stop-and-Wait ARQ | `exp07_stop_and_wait` | Java | `javac StopAndWait.java && java StopAndWait 5 0.3` |
-| 8 | Sliding window: Go-Back-N, Selective Repeat | `exp08_sliding_window` | Java | `javac SlidingWindow.java && java SlidingWindow both 10 4 0.2` |
-| 9 | Distance Vector & Link State routing | `exp09_routing` | Java | `java DistanceVector` / `java LinkState` (after `javac *.java`) |
-| 10 | Packet sniffer / protocol analysis | `exp10_packet_sniffer` | C + Wireshark | `gcc sniffer.c -o sniffer && sudo ./sniffer 20` |
-| 11 | SMTP | `exp11_smtp` | Java | `java SmtpServer` then `java SmtpClient` |
-| 12 | FTP | `exp12_ftp` | Java | `java FtpServer` then `java FtpClient` (login student/lab123) |
-| 13 | NS-2 introduction | `exp13_ns2_intro` | Tcl | `ns first.tcl` |
-| 14 | Ping over star topology (NS-2) | `exp14_ns2_star_ping` | Tcl | `ns star_ping.tcl 6` |
+| # | Experiment | File | Run |
+|---|---|---|---|
+| 1 | Basic networking commands | `exp01_basic_commands.sh` | `./exp01_basic_commands.sh [host]` |
+| 2 | Network system calls | `exp02_system_calls.c` | `gcc exp02_system_calls.c -o sc && ./sc` |
+| 3 | IP, subnetting, supernetting | `Exp03Subnetting.java` | `java Exp03Subnetting 192.168.10.0/24` |
+| 4 | Network design (optional, Packet Tracer) | `exp04_network_design.md` | step-by-step guide |
+| 5 | TCP client/server | `exp05_tcp_sockets.c` | `./tcp server [port]` then `./tcp client [ip] [port]` |
+| 6 | UDP client/server | `exp06_udp_sockets.c` | `./udp server [port]` then `./udp client [ip] [port]` |
+| 7 | Stop-and-Wait, Stop-and-Wait ARQ | `Exp07StopAndWait.java` | `java Exp07StopAndWait 5 0.3` |
+| 8 | Go-Back-N, Selective Repeat | `Exp08SlidingWindow.java` | `java Exp08SlidingWindow both 10 4 0.2` |
+| 9 | Distance Vector / Link State routing | `Exp09Routing.java` | `java Exp09Routing distancevector` or `linkstate` |
+| 10 | Packet sniffer | `exp10_packet_sniffer.c` | `sudo ./sniffer 20 [port]` |
+| 11 | SMTP | `Exp11Smtp.java` | `java Exp11Smtp smtpserver` then `java Exp11Smtp smtpclient` |
+| 12 | FTP | `Exp12Ftp.java` | `java Exp12Ftp ftpserver` then `java Exp12Ftp ftpclient` (student/lab123) |
+| 13 | NS-2 introduction | `exp13_ns2_intro.tcl` | `ns exp13_ns2_intro.tcl` |
+| 14 | Ping over star topology (NS-2) | `exp14_ns2_star_ping.tcl` | `ns exp14_ns2_star_ping.tcl 6` |

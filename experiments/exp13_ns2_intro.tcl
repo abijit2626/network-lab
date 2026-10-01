@@ -1,5 +1,9 @@
+# # Experiment 13 – Introduction to NS-2
+# Install: `sudo apt install ns2 nam`. Run `ns exp13_ns2_intro.tcl`. Key objects: `Simulator`, `node`, `duplex-link bw delay queue`,
+# `Agent/UDP|TCP` + `Agent/Null|TCPSink`, `Application/Traffic/CBR|FTP`, `$ns at time "cmd"`, trace file (`.tr`) and NAM file (`.nam`).
+# Trace line format: `event time from to type size flags fid src dst seq id` (`+` enqueue, `-` dequeue, `r` receive, `d` drop).
 # Experiment 13: Introduction to NS-2 - two nodes, one duplex link, UDP CBR traffic.
-# Run: ns first.tcl      (view with: nam first.nam)
+# Run: ns exp13_ns2_intro.tcl      (view with: nam first.nam)
 set ns [new Simulator]
 
 set nf [open first.nam w]

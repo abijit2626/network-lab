@@ -1,8 +1,8 @@
 import java.util.Random;
 
 /** Experiment 8: Sliding window protocols - Go-Back-N and Selective Repeat (simulation).
- *  javac SlidingWindow.java && java SlidingWindow [gbn|sr|both] [frames] [window] [lossProb] [seed] */
-public class SlidingWindow {
+ *  javac Exp08SlidingWindow.java && java Exp08SlidingWindow [gbn|sr|both] [frames] [window] [lossProb] [seed] */
+public class Exp08SlidingWindow {
     static void goBackN(int total, int w, double loss, Random r) {
         System.out.println("Go-Back-N: " + total + " frames, window=" + w + ", loss=" + loss);
         int base = 0, next = 0, tx = 0;

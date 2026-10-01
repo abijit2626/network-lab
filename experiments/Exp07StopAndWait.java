@@ -1,8 +1,8 @@
 import java.util.Random;
 
 /** Experiment 7: Stop-and-Wait and Stop-and-Wait ARQ on a lossy channel (simulation).
- *  javac StopAndWait.java && java StopAndWait [frames] [lossProb] [seed] */
-public class StopAndWait {
+ *  javac Exp07StopAndWait.java && java Exp07StopAndWait [frames] [lossProb] [seed] */
+public class Exp07StopAndWait {
     static void stopAndWait(int n) {
         System.out.println("\n--- Stop and Wait (ideal channel) ---");
         for (int i = 0; i < n; i++) {

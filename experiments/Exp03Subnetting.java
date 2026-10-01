@@ -1,8 +1,8 @@
 import java.util.*;
 
 /** Experiment 3: IP addressing, subnetting, subnet masks, supernetting.
- *  javac Subnet.java && java Subnet 192.168.10.0/24 */
-public class Subnet {
+ *  javac Exp03Subnetting.java && java Exp03Subnetting 192.168.10.0/24 */
+public class Exp03Subnetting {
     static long toLong(String ip) {
         long v = 0;
         for (String s : ip.split("\\.")) v = (v << 8) | Integer.parseInt(s);

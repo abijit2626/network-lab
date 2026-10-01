@@ -1,3 +1,9 @@
+// # Experiment 2 – System calls for network programming
+// `socket()` create endpoint · `bind()` attach address · `listen()` mark passive · `accept()` take a connection ·
+// `connect()` active open · `send()/recv()` TCP I/O · `sendto()/recvfrom()` UDP I/O · `close()/shutdown()` ·
+// `getsockname()/getpeername()` · `setsockopt()/getsockopt()` · `gethostbyname()/getaddrinfo()` · `htons/htonl/ntohs/ntohl` · `inet_pton/inet_ntop` · `select()/poll()`.
+//
+// Build & run: `gcc exp02_system_calls.c -o sc && ./sc`
 /* Experiment 2: demonstrates common network system calls in one process. */
 #include <stdio.h>
 #include <stdlib.h>
