@@ -21,3 +21,4 @@ One file per experiment (experiment 2 has a server and a client file), all in `e
 | 12 | FTP | `Exp12Ftp.java` | `java Exp12Ftp ftpserver` then `java Exp12Ftp ftpclient` (student/lab123) |
 | 13 | NS-2 introduction | `exp13_ns2_intro.tcl` | `ns exp13_ns2_intro.tcl` |
 | 14 | Ping over star topology (NS-2) | `exp14_ns2_star_ping.tcl` | `ns exp14_ns2_star_ping.tcl 6` |
+| – | Leaky bucket traffic shaping | `LeakyBucket.java` | `java LeakyBucket` or `java LeakyBucket --input` |
