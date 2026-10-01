@@ -8,6 +8,7 @@ One file per experiment (experiment 2 has a server and a client file), all in `e
 | 3 | IP, subnetting, supernetting | `Exp03Subnetting.java` | `java Exp03Subnetting 192.168.10.0/24` |
 | 3 | TCP client/server in Java | `Exp03TcpServer.java`, `Exp03TcpClient.java` | `java Exp03TcpServer [port]` then `java Exp03TcpClient [host] [port]` |
 | 4 | Network design (optional, Packet Tracer) | `exp04_network_design.md` | step-by-step guide |
+| 4 | Sender / receiver in Java (UDP) | `Exp04Sender.java`, `Exp04Receiver.java` | `java Exp04Receiver [port]` then `java Exp04Sender [host] [port]` |
 | 5 | TCP client/server | `exp05_tcp_sockets.c` | `./tcp server [port]` then `./tcp client [ip] [port]` |
 | 6 | UDP client/server | `exp06_udp_sockets.c` | `./udp server [port]` then `./udp client [ip] [port]` |
 | 7 | Stop-and-Wait, Stop-and-Wait ARQ | `Exp07StopAndWait.java` | `java Exp07StopAndWait 5 0.3` |
