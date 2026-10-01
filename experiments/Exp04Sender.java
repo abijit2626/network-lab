@@ -1,30 +1,38 @@
 import java.io.*;
 import java.net.*;
 
-/** Experiment 4: Sender (UDP datagram socket).
- *  javac Exp04Sender.java && java Exp04Sender [host] [port]    (type 'bye' to quit) */
+/** Experiment 4: UDP chat - Sender side. Start the Receiver first, then type messages; replies appear as they arrive.
+ *  Type "bye" to end the chat.
+ *  javac Exp04Sender.java && java Exp04Sender [host] [port]    (default localhost 6000) */
 public class Exp04Sender {
     public static void main(String[] args) throws Exception {
-        String host = args.length > 0 ? args[0] : "localhost";
+        InetAddress host = InetAddress.getByName(args.length > 0 ? args[0] : "localhost");
         int port = args.length > 1 ? Integer.parseInt(args[1]) : 6000;
-        InetAddress addr = InetAddress.getByName(host);
-        try (DatagramSocket socket = new DatagramSocket()) {
-            socket.setSoTimeout(3000);                        // UDP is unreliable: don't wait forever for the ACK
-            BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
-            String msg;
-            while (System.out.printf("> ") != null && (msg = keyboard.readLine()) != null) {
-                byte[] data = msg.getBytes();
-                socket.send(new DatagramPacket(data, data.length, addr, port));
-                byte[] buf = new byte[1024];
-                DatagramPacket reply = new DatagramPacket(buf, buf.length);
-                try {
-                    socket.receive(reply);
-                    System.out.println(new String(reply.getData(), 0, reply.getLength()));
-                } catch (SocketTimeoutException e) {
-                    System.out.println("timeout - no ACK received (datagram lost?)");
+        DatagramSocket socket = new DatagramSocket();
+        System.out.println("Sender chat to " + host.getHostAddress() + ":" + port + ". Type messages ('bye' to quit).");
+
+        Thread reader = new Thread(() -> {
+            byte[] b = new byte[1024];
+            try {
+                while (true) {
+                    DatagramPacket p = new DatagramPacket(b, b.length);
+                    socket.receive(p);
+                    String m = new String(p.getData(), 0, p.getLength());
+                    System.out.println("Receiver: " + m);
+                    if (m.equalsIgnoreCase("bye")) { System.out.println("[Receiver left the chat]"); System.exit(0); }
                 }
-                if (msg.equalsIgnoreCase("bye")) break;
-            }
+            } catch (IOException e) { /* socket closed */ }
+        });
+        reader.setDaemon(true);
+        reader.start();
+
+        BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
+        String line;
+        while ((line = keyboard.readLine()) != null) {
+            byte[] d = line.getBytes();
+            socket.send(new DatagramPacket(d, d.length, host, port));
+            if (line.equalsIgnoreCase("bye")) break;
         }
+        socket.close();
     }
 }
