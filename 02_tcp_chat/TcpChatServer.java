@@ -3,8 +3,6 @@ import java.net.*;
 import java.util.*;
 import java.util.concurrent.*;
 
-/** TCP chat server - one thread per client; every message is broadcast to all other connected clients.
- *  javac TcpChatServer.java && java TcpChatServer [port]    (default 5000) */
 public class TcpChatServer {
     static final Map<String, PrintWriter> clients = new ConcurrentHashMap<>();
 
@@ -38,7 +36,7 @@ public class TcpChatServer {
                 broadcast(name + ": " + line, name);
             }
         } catch (IOException e) {
-            // client dropped
+
         } finally {
             if (name != null) {
                 clients.remove(name);

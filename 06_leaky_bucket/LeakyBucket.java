@@ -1,14 +1,9 @@
 import java.util.*;
 
-/** Leaky Bucket traffic shaping algorithm (congestion control).
- *  Packets arrive in bursts at irregular times; the bucket holds up to `capacity` bytes and leaks (sends) at a
- *  constant `rate` bytes per second. If an arriving packet does not fit, it overflows and is dropped.
- *  javac LeakyBucket.java && java LeakyBucket                 (uses a sample input)
- *  java LeakyBucket --input                                    (enter capacity, rate and packet sizes yourself) */
 public class LeakyBucket {
     public static void main(String[] args) {
-        int capacity = 10, rate = 3;                         // bucket size and output rate (bytes per second)
-        int[] packets = {4, 8, 2, 6, 0, 9, 3, 0, 5};         // packet size arriving at each second (0 = nothing)
+        int capacity = 10, rate = 3;
+        int[] packets = {4, 8, 2, 6, 0, 9, 3, 0, 5};
 
         if (args.length > 0 && args[0].equals("--input")) {
             Scanner sc = new Scanner(System.in);
@@ -30,9 +25,9 @@ public class LeakyBucket {
             int arrived = t < packets.length ? packets[t] : 0, accepted = 0, dropped = 0;
             if (arrived > 0) {
                 if (bucket + arrived <= capacity) { bucket += arrived; accepted = arrived; }
-                else { dropped = arrived; totalDropped += arrived; }      // overflow -> packet discarded
+                else { dropped = arrived; totalDropped += arrived; }
             }
-            int sent = Math.min(bucket, rate);                             // constant-rate leak
+            int sent = Math.min(bucket, rate);
             bucket -= sent;
             totalSent += sent;
             System.out.printf("%-6d %-9d %-10d %-9d %-9d %-8d%n", t + 1, arrived, accepted, dropped, sent, bucket);

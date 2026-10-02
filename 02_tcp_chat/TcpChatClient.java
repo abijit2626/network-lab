@@ -1,8 +1,6 @@
 import java.io.*;
 import java.net.*;
 
-/** TCP chat client - a thread prints incoming messages while the main thread sends what you type.
- *  javac TcpChatClient.java && java TcpChatClient [host] [port]    (type 'bye' to leave) */
 public class TcpChatClient {
     public static void main(String[] args) throws IOException {
         String host = args.length > 0 ? args[0] : "localhost";
@@ -14,7 +12,7 @@ public class TcpChatClient {
                 try {
                     String line;
                     while ((line = in.readLine()) != null) System.out.println(line);
-                } catch (IOException e) { /* closed */ }
+                } catch (IOException e) {  }
                 System.out.println("[disconnected]");
                 System.exit(0);
             });

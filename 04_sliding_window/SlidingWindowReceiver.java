@@ -1,18 +1,13 @@
 import java.net.*;
 import java.util.Random;
 
-/** Experiment 8: Sliding Window (Go-Back-N) - RECEIVER program over UDP.
- *  Accepts only the next expected frame, discards out-of-order frames and sends a cumulative ACK
- *  (= next expected sequence number). Frames are randomly dropped to emulate an unreliable channel.
- *  javac SlidingWindowReceiver.java && java SlidingWindowReceiver [port] [lossProb]
- *  (defaults: port 8000, loss 0.2; start the receiver first, then the sender) */
 public class SlidingWindowReceiver {
     public static void main(String[] args) throws Exception {
         int port = args.length > 0 ? Integer.parseInt(args[0]) : 8000;
         double loss = args.length > 1 ? Double.parseDouble(args[1]) : 0.2;
         Random rnd = new Random();
         try (DatagramSocket socket = new DatagramSocket(port)) {
-            socket.setSoTimeout(8000);                    // stop if the sender goes quiet
+            socket.setSoTimeout(8000);
             System.out.println("Receiver (Go-Back-N) on UDP port " + port + ", frame loss " + loss);
             int expected = 0;
             byte[] buf = new byte[1024];
@@ -20,7 +15,7 @@ public class SlidingWindowReceiver {
                 while (true) {
                     DatagramPacket p = new DatagramPacket(buf, buf.length);
                     socket.receive(p);
-                    String[] f = new String(p.getData(), 0, p.getLength()).split("\\|", 3);   // seq|total|data
+                    String[] f = new String(p.getData(), 0, p.getLength()).split("\\|", 3);
                     int seq = Integer.parseInt(f[0]), total = Integer.parseInt(f[1]);
                     if (rnd.nextDouble() < loss) { System.out.println("Frame " + seq + " LOST in channel"); continue; }
                     if (seq == expected) {

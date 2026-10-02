@@ -1,7 +1,5 @@
 import java.util.*;
 
-/** Experiment 9a: Distance Vector routing (Bellman-Ford). 999 = no link.
- *  javac DistanceVectorRouting.java && java DistanceVectorRouting [--input] */
 public class DistanceVectorRouting {
     static final int INF = 999;
     static final int[][] SAMPLE = {{0, 2, INF, 1}, {2, 0, 3, 7}, {INF, 3, 0, 11}, {1, 7, 11, 0}};
@@ -29,7 +27,7 @@ public class DistanceVectorRouting {
             it++;
             for (int i = 0; i < n; i++)
                 for (int j = 0; j < n; j++)
-                    for (int k = 0; k < n; k++)               // k must be a direct neighbour of i
+                    for (int k = 0; k < n; k++)
                         if (cost[i][k] != INF && dist[i][k] + dist[k][j] < dist[i][j]) {
                             dist[i][j] = dist[i][k] + dist[k][j];
                             next[i][j] = next[i][k];

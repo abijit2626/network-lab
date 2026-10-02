@@ -2,9 +2,6 @@ import java.io.*;
 import java.net.*;
 import java.nio.file.*;
 
-/** File transfer client (receiver): connects to the server and saves the file it sends.
- *  javac FtpClient.java && java FtpClient [host] [port]      (defaults: localhost 2121)
- *  The file is saved as received_<name> in the current directory. */
 public class FtpClient {
     public static void main(String[] args) throws IOException {
         String host = args.length > 0 ? args[0] : "localhost";
@@ -12,7 +9,7 @@ public class FtpClient {
 
         try (Socket socket = new Socket(host, port)) {
             DataInputStream in = new DataInputStream(socket.getInputStream());
-            String name = Paths.get(in.readUTF()).getFileName().toString();   // strip any path for safety
+            String name = Paths.get(in.readUTF()).getFileName().toString();
             long size = in.readLong();
             Path target = Paths.get("received_" + name);
             System.out.println("Receiving \"" + name + "\" (" + size + " bytes) ...");

@@ -1,10 +1,5 @@
 import java.net.*;
 
-/** Experiment 8: Sliding Window (Go-Back-N) - SENDER program over UDP.
- *  Keeps up to `window` unacknowledged frames in flight; a cumulative ACK slides the window forward;
- *  on timeout the whole window is retransmitted from the oldest unacknowledged frame.
- *  javac SlidingWindowSender.java && java SlidingWindowSender [host] [port] [frames] [window]
- *  (defaults: localhost 8000 10 4) */
 public class SlidingWindowSender {
     public static void main(String[] args) throws Exception {
         InetAddress host = InetAddress.getByName(args.length > 0 ? args[0] : "localhost");
@@ -19,7 +14,7 @@ public class SlidingWindowSender {
             System.out.println("Sender: " + total + " frames, window " + window);
             byte[] buf = new byte[64];
             while (base < total) {
-                while (next < base + window && next < total) {          // fill the window
+                while (next < base + window && next < total) {
                     send(socket, host, port, next, total);
                     System.out.println("Sent Frame " + next + "   window [" + base + ", " + (base + window - 1) + "]");
                     next++;

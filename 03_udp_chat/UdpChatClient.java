@@ -1,8 +1,6 @@
 import java.io.*;
 import java.net.*;
 
-/** Experiment 5: UDP chat client - one thread prints incoming messages, the main thread sends what you type.
- *  javac UdpChatClient.java && java UdpChatClient <name> [host] [port]    (type 'bye' to leave) */
 public class UdpChatClient {
     public static void main(String[] args) throws Exception {
         String name = args.length > 0 ? args[0] : "user" + (int) (Math.random() * 1000);
@@ -18,7 +16,7 @@ public class UdpChatClient {
                     socket.receive(p);
                     System.out.println("\r" + new String(p.getData(), 0, p.getLength()));
                 }
-            } catch (IOException e) { /* socket closed */ }
+            } catch (IOException e) {  }
         });
         receiver.setDaemon(true);
         receiver.start();

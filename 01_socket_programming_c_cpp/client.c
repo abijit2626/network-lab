@@ -1,4 +1,3 @@
-/* TCP client in C. gcc client.c -o client_c && ./client_c [server_ip] [port]   (type 'bye' to quit) */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

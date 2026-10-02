@@ -1,5 +1,3 @@
-/* TCP server in C: accepts one client at a time and echoes back every message.
- * gcc server.c -o server_c && ./server_c [port]      (default 8080) */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

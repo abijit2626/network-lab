@@ -1,4 +1,3 @@
-// TCP client in C++. g++ client.cpp -o client_cpp && ./client_cpp [server_ip] [port]   (type 'bye' to quit)
 #include <iostream>
 #include <string>
 #include <unistd.h>

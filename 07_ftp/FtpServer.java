@@ -2,8 +2,6 @@ import java.io.*;
 import java.net.*;
 import java.nio.file.*;
 
-/** File transfer server: sends a text file to the client that connects.
- *  javac FtpServer.java && java FtpServer <file.txt> [port]      (default port 2121; start this first) */
 public class FtpServer {
     public static void main(String[] args) throws IOException {
         if (args.length < 1) { System.out.println("usage: java FtpServer <file> [port]"); return; }
@@ -17,9 +15,9 @@ public class FtpServer {
                 System.out.println("Client connected: " + client.getInetAddress().getHostAddress());
                 byte[] data = Files.readAllBytes(file);
                 DataOutputStream out = new DataOutputStream(client.getOutputStream());
-                out.writeUTF(file.getFileName().toString());      // file name
-                out.writeLong(data.length);                       // file size
-                out.write(data);                                  // file contents
+                out.writeUTF(file.getFileName().toString());
+                out.writeLong(data.length);
+                out.write(data);
                 out.flush();
                 System.out.println("Sent " + data.length + " bytes.");
             }

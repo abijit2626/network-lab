@@ -1,9 +1,6 @@
 import java.net.*;
 import java.util.*;
 
-/** Experiment 5: UDP chat server - registers clients by their first message ("JOIN name") and relays every
- *  message to all other clients. Type "bye" from a client to leave.
- *  javac UdpChatServer.java && java UdpChatServer [port]    (default 7000) */
 public class UdpChatServer {
     public static void main(String[] args) throws Exception {
         int port = args.length > 0 ? Integer.parseInt(args[0]) : 7000;
@@ -21,7 +18,7 @@ public class UdpChatServer {
                     clients.put(from, msg.substring(5));
                     out = "*** " + clients.get(from) + " joined the chat";
                 } else if (!clients.containsKey(from)) {
-                    continue;                                   // ignore datagrams from unregistered senders
+                    continue;
                 } else if (msg.equalsIgnoreCase("bye")) {
                     out = "*** " + clients.remove(from) + " left the chat";
                 } else {

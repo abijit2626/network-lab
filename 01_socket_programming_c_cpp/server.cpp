@@ -1,5 +1,3 @@
-// TCP server in C++: accepts one client at a time and echoes back every message.
-// g++ server.cpp -o server_cpp && ./server_cpp [port]      (default 8081)
 #include <iostream>
 #include <string>
 #include <cstring>
